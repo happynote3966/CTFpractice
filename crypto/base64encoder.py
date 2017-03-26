@@ -3,6 +3,7 @@
 #TODO
 #This program need arugment. If argument is not exist, program will be exit.
 #You must implement the usage function.
+#change Log:
 
 import sys
 import base64
