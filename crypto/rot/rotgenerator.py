@@ -23,8 +23,13 @@ def rangecheck(char,rotate):
     else:
         return char
 
-def rotate(file,rotate):
+def rotate(file,rotate_number):
     string = open(file,'rt').read()
+    rotatestring = ""
+    for c in string:
+        rotatestring += rangecheck(c,rotate_number)
+
+    print("ROT {0} : {1:s}".format(rotate_number,rotatestring))
 
 
 def rot_bruteforce(file):
@@ -49,7 +54,7 @@ def rot_bruteforce(file):
 def main():
     bruteforce = False
     file = None
-    rotate = 13
+    rotate_number = 13
     try:
         shortopt = "bf:hr:"
         longopt = ["bruteforce","file=","help","rotate="]
@@ -66,14 +71,16 @@ def main():
         elif o in ('-h','--help'):
             usage()
         elif o in ('-r','--rotate'):
-            rotate = int(a,10)
+            rotate_number = int(a,10)
+            if rotate_number < 0:
+                rotate_number = 26 + rotate_number
         else:
             usage()
 
     if bruteforce == True:
         rot_bruteforce(file)
     else:
-        rotate(file,rotate)
+        rotate(file,rotate_number)
 
 
 if __name__ == '__main__':
