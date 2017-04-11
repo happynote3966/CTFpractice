@@ -3,7 +3,14 @@
 #include <stdlib.h>
 
 void sigHandler(int sig){
-	printf("Ouch!\n");
+	printf("FLAG{You_can_input_data_which_cause_BOF!}\n");
+	exit(1);
+}
+
+void input(void){
+	char buf[20];
+	gets(buf);
+	return;
 }
 
 int main(void){
@@ -17,7 +24,6 @@ int main(void){
 		fprintf(stderr,"Failed to set my signal handler.\n");
 		exit(1);
 	}
-
-	gets(buf);
-
+	input();
+	return 0;
 }
