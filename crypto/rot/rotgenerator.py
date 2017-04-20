@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 #!/usr/bin/python3
-
+# python3 rotgenerator.py -f Unknown.txt -r 13
 import sys
 import getopt
 

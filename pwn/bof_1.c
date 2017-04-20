@@ -8,13 +8,13 @@ void sigHandler(int sig){
 }
 
 void input(void){
-	char buf[20];
+	char buf[100];
 	gets(buf);
 	return;
 }
 
 int main(void){
-	char buf[20];
+	printf("Input data : ");
 	struct sigaction newAct;
 	sigemptyset(&newAct.sa_mask);
 	sigaddset(&newAct.sa_mask,SIGSEGV);
@@ -25,5 +25,6 @@ int main(void){
 		exit(1);
 	}
 	input();
+	printf("Can you make BOF?\n");
 	return 0;
 }
