@@ -4,19 +4,20 @@
 
 void sigHandler(int sig){
 	printf("FLAG{You_can_input_data_which_cause_BOF!}\n");
-	fflush(stdout);
+	//fflush(stdout);
 	exit(1);
 }
-
+/*
 void input(void){
-	char buf[10];
+	char buf[100];
 	gets(buf);
 	return;
 }
-
+*/
 int main(void){
+	char buf[10];
 	printf("Input data : ");
-	fflush(stdout);
+	//fflush(stdout);
 	struct sigaction newAct;
 	sigemptyset(&newAct.sa_mask);
 	sigaddset(&newAct.sa_mask,SIGSEGV);
@@ -26,8 +27,8 @@ int main(void){
 		fprintf(stderr,"Failed to set my signal handler.\n");
 		exit(1);
 	}
-	input();
+	gets(buf);
 	printf("Can you make BOF?\n");
-	fflush(stdout);
+	//fflush(stdout);
 	return 0;
 }
