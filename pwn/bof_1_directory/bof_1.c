@@ -9,7 +9,7 @@ void sigHandler(int sig){
 }
 
 void input(void){
-	char buf[10];
+	char buf[100];
 	gets(buf);
 	return;
 }
