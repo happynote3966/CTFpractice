@@ -14,7 +14,7 @@ void input(void){
 		:"=a" (canary)
 		:
 		:);
-	printf("Canary=%x\n",canary);
+	printf("Canary = 0x%x\n",canary);
 	printf("Input your data : ");
 	fflush(stdout);
 	gets(buf);
