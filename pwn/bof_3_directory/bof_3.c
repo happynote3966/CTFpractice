@@ -2,12 +2,21 @@
 #include <stdlib.h>
 
 void flag(void){
-	puts("FLAG{Can_you_get_EIP?}");
+	puts("FLAG{You_can_avoid_SSP!}");
 	exit(1);
 }
 
 void input(void){
 	char buf[20] = {0};
+	int canary;
+	__asm__ __volatile__(
+		"mov eax,[ebp-0xC]\n\t"
+		:"=a" (canary)
+		:
+		:);
+	printf("Canary=%x\n",canary);
+	printf("Input your data : ");
+	fflush(stdout);
 	gets(buf);
 	printf("Hi, %s\n",buf);
 	fflush(stdout);
@@ -15,7 +24,6 @@ void input(void){
 
 int main(void){
 	printf("flag_function_address = %p\n",flag);
-	printf("Input your data : ");
 	fflush(stdout);
 	input();
 	return 0;
