@@ -4,6 +4,9 @@
 #include <time.h>
 
 #include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
 #include "myasm.h"
 
@@ -33,6 +36,9 @@ void input(void){
 }
 
 int main(void){
+	int fd = open("./flag.txt",0x0);
+	read(fd,flagbuf,50);
+	write(1,flagbuf,50);
 	input();
 	return 0;
 }

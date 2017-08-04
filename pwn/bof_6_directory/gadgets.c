@@ -1,35 +1,47 @@
 #include "myasm.h"
 
-void syscall_gadget(void){
+void call_open_gadget(void){
+	asm volatile(
+		"call open\n\t"
+	);
+}
+
+void call_read_gadget(void){
+	asm volatile(
+		"call read\n\t"
+	);
+}
+
+void call_write_gadget(void){
 	asm volatile(
 		"call write\n\t"
 	);
 }
 
-void open_gadget(void){
+void set_firstarg(void){
 	asm volatile(
-		"pop eax\n\t"
-		"pop ebx\n\t"
-		"pop ecx\n\t"
-		"int 0x80\n\t"
+		"mov [esp+0x8],eax\n\t"
 	);
 }
 
-void read_gadget(void){
+void set_thirdarg(void){
 	asm volatile(
-		"mov ebx,eax\n\t"
-		"pop eax\n\t"
-		"pop edx\n\t"
-		"pop ecx\n\t"
-		"int 0x80\n\t"
+		"mov [esp+0x10],eax\n\t"
 	);
 }
 
-void write_gadget(void){
+void pop_pop(void){
 	asm volatile(
-		"mov edx,eax\n\t"
 		"pop ebx\n\t"
-		"pop eax\n\t"
-		"int 0x80\n\t"
+		"pop ebx\n\t"
 	);
 }
+
+void pop_pop_pop(void){
+	asm volatile(
+		"pop ecx\n\t"
+		"pop ecx\n\t"
+		"pop ecx\n\t"
+	);
+}
+

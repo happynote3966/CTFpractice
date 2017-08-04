@@ -1,0 +1,9 @@
+break *input+264
+break *input+347
+break *0x8048761
+break *read+41
+break read
+break *read+28
+break __kernel_vsyscall
+disable $bpnum
+break *read+28
