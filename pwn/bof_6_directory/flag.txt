@@ -1,1 +1,1 @@
-Flag{Removing argument is important!}
+Flag{Removing_argument_is_important!}
