@@ -36,9 +36,9 @@ void input(void){
 }
 
 int main(void){
-	int fd = open("./flag.txt",0x0);
-	read(fd,flagbuf,50);
-	write(1,flagbuf,50);
+	//int fd = open("./flag.txt",0x0);
+	//read(fd,flagbuf,50);
+	//write(1,flagbuf,50);
 	input();
 	return 0;
 }
