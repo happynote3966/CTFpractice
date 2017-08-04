@@ -1,0 +1,28 @@
+void gadget_open(void){
+  asm volatile(
+	"mov eax 0x5"
+	"mov ebx 0x804a060"
+	"mov ecx 0x0"
+	"int 0x80"
+  )
+}
+
+void gadget_read(void){
+  asm volatile(
+	"mov eax 0x3"
+	"mov ebx eax"
+	"mov ecx 0x804a0e0"
+	"mov edx 0x32"
+	"int 0x80"
+  )
+}
+
+void gadget_write(void){
+  asm volatile(
+	"mov edx eax"
+	"mov eax 0x4"
+	"mov ebx 1"
+	"int 0x80"
+  )
+	
+}
