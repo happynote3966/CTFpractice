@@ -1,5 +1,3 @@
 break *input+264
+break *input+264
 break *input+347
-break read
-break write
-break open

@@ -2,19 +2,19 @@
 
 void call_open_gadget(void){
 	asm volatile(
-		"call open\n\t"
+		"jmp open\n\t"
 	);
 }
 
 void call_read_gadget(void){
 	asm volatile(
-		"call read\n\t"
+		"jmp read\n\t"
 	);
 }
 
 void call_write_gadget(void){
 	asm volatile(
-		"call write\n\t"
+		"jmp write\n\t"
 	);
 }
 

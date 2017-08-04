@@ -1,1 +1,1 @@
-Flag{Can_you_set_argument?}
+FLAG{Can_you_set_argument?}
