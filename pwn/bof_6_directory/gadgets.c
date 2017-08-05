@@ -1,18 +1,18 @@
 #include "myasm.h"
 
-void call_open_gadget(void){
+void open_gadget(void){
 	asm volatile(
 		"jmp open\n\t"
 	);
 }
 
-void call_read_gadget(void){
+void read_gadget(void){
 	asm volatile(
 		"jmp read\n\t"
 	);
 }
 
-void call_write_gadget(void){
+void write_gadget(void){
 	asm volatile(
 		"jmp write\n\t"
 	);
