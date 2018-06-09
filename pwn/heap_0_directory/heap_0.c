@@ -19,6 +19,8 @@ void read_flag(void){
 }
 
 int main(void){
+	setvbuf(stdin,NULL,_IONBF,0);
+	setvbuf(stdout,NULL,_IONBF,0);
 	read_flag();
 
 	puts("Welcome to the first heap question...");
