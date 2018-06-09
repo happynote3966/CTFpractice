@@ -55,4 +55,51 @@ int main(void){
 
 EOS
 
+cat << EOS > exploit_$1.py
+import struct
+import socket
+import telnetlib
+
+def sock(ip,port):
+	s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+	s.connect((ip,port))
+	return s
+
+
+def shell(s):
+	t = telnetlib.Telnet()
+	t.sock = s
+	t.interact()
+
+
+def p32(data):
+	return struct.pack("<I",data)
+
+def p64(data):
+	return struct.pack("<Q",data)
+
+def u32(data):
+	return struct.unpack("<I",data)[0]
+
+def u64(data):
+	return struct.unpack("<Q",data)[0]
+
+
+def main():
+	s = sock("localhost",10000)
+	buf = "AAAA"
+	buf += "\n"
+	s.send(buf)
+	s.recv(1024)
+	shell(s)
+
+
+if __name__ == '__main__':
+	main()
+
+
+EOS
+
+
+
 popd
